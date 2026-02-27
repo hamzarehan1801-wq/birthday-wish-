@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Summaiya ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  height:100vh;
+  overflow:hidden;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.screen{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  padding:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:0.8s;
+}
+.screen.active{
+  opacity:1;
+  pointer-events:auto;
+}
+h1{font-size:2.2rem;margin-bottom:15px}
+p{opacity:.9;line-height:1.6}
+button{
+  margin-top:25px;
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#ff512f,#dd2476);
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(255,81,47,.7);
+}
+button:hover{transform:scale(1.05)}
+.emoji-rain span,.heart span{
+  position:absolute;
+  animation:fall linear infinite;
+  font-size:28px;
+}
+@keyframes fall{
+  from{transform:translateY(-10vh);opacity:1}
+  to{transform:translateY(110vh);opacity:0}
+}
+.cake{
+  font-size:100px;
+  animation:bounce 1.5s infinite;
+}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-20px)}
+}
+.friend-img{
+  width:260px;
+  border-radius:20px;
+  box-shadow:0 0 30px rgba(255,255,255,.3);
+}
+.final{
+  font-size:1.3rem;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="screen active" id="s1">
+  <h1>Hello choti duniya 😄</h1>
+  <p>Ready ho ek choti si surprise journey ke liye?</p>
+  <button onclick="go(2)">Yes 😂</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen" id="s2">
+  <h1>😂😂😂</h1>
+  <div class="emoji-rain" id="emoji"></div>
+  <p>Hasna mana nahi hai!</p>
+  <button onclick="go(3)">Aage chalo ➡️</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen" id="s3">
+  <div class="cake">🎂</div>
+  <p>Bohot saari candles… phoonk maaro 😜</p>
+  <button onclick="go(4)">Candles gira do 🔥</button>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen" id="s4">
+  <h1>Hamari Dosti 🤍</h1>
+  <img class="friend-img" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="">
+  <p>Ya ya… hamesha ki dosti 💫</p>
+  <button onclick="go(5)">Next ❤️</button>
+</div>
+
+<!-- SCREEN 5 -->
+<div class="screen" id="s5">
+  <div class="heart" id="heart"></div>
+  <h1>💖💖💖</h1>
+  <p class="final">
+    Summaiya… Aaj ka din mere liye bhi utna hi special hai jitna shayad tumhare liye hoga.<br><br>
+    Tumhari saadgi, tumhari muskurahat aur tumhara baat karne ka andaaz bohat khoobsurat hai.
+    Main dua karta hoon ke tumhari zindagi hamesha khushiyon se bhari rahe.<br><br>
+    Birthday bohat bohat mubarak ho ❤️<br>
+    Allah tumhein sukoon aur kamyabi de. Ameen.
+  </p>
+  <h2 style="margin-top:25px">Love you Summaiya ❤️ x100</h2>
+</div>
+
+<script>
+function go(n){
+  document.querySelector('.screen.active').classList.remove('active');
+  document.getElementById('s'+n).classList.add('active');
+  if(n==2)emojiRain();
+  if(n==5)heartRain();
+}
+
+function emojiRain(){
+  for(let i=0;i<40;i++){
+    let s=document.createElement('span');
+    s.innerText="😂";
+    s.style.left=Math.random()*100+"%";
+    s.style.animationDuration=2+Math.random()*3+"s";
+    document.getElementById('emoji').appendChild(s);
+  }
+}
+
+function heartRain(){
+  for(let i=0;i<50;i++){
+    let s=document.createElement('span');
+    s.innerText="❤️";
+    s.style.left=Math.random()*100+"%";
+    s.style.animationDuration=3+Math.random()*4+"s";
+    document.getElementById('heart').appendChild(s);
+  }
+}
+</script>
+
+</body>
+</html>
